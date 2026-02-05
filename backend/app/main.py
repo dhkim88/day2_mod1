@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import engine, Base
-from app.routers import examples
+from app.routers import examples, symptoms, diseases, prediction
 
 # 데이터베이스 테이블 생성
 Base.metadata.create_all(bind=engine)
@@ -20,6 +20,9 @@ app.add_middleware(
 
 # 라우터 등록
 app.include_router(examples.router)
+app.include_router(symptoms.router)
+app.include_router(diseases.router)
+app.include_router(prediction.router)
 
 
 @app.get("/api/health")

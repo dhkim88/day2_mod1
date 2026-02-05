@@ -2,7 +2,25 @@
   "permissions": {
     "allow": [
       "Bash(gh:*)",
-      "Bash(git:*)"
+      "Bash(git:*)",
+      "Bash(test -f:*)",
+      "Bash(dir:*)",
+      "Bash(.venvScriptspython.exe seed_data.py)",
+      "Bash(.venv/Scripts/python.exe:*)",
+      "Bash(.venvScriptspython.exe -m uvicorn app.main:app --reload --port 8000)",
+      "Bash(timeout:*)",
+      "Bash(ping:*)",
+      "Bash(.venvScriptspython.exe -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(.venvScriptspython.exe add_categories.py)",
+      "Bash(source:*)",
+      "Bash(.venvScriptspython -c \"from app.database import SessionLocal; from app.models.disease import Disease; from app.models.disease_symptom import DiseaseSymptom; db = SessionLocal\\(\\); result = db.query\\(Disease.id, Disease.name\\).filter\\(Disease.name.in_\\([''삼차신경통'', ''협심증'']\\)\\).all\\(\\); print\\(''질병 ID:''\\); [print\\(f''{r[0]}: {r[1]}''\\) for r in result]; print\\(''\\\\n증상 수:''\\); counts = db.query\\(DiseaseSymptom.disease_id, db.func.count\\(DiseaseSymptom.symptom_id\\)\\).filter\\(DiseaseSymptom.disease_id.in_\\([r[0] for r in result]\\)\\).group_by\\(DiseaseSymptom.disease_id\\).all\\(\\); [print\\(f''질병 {c[0]}: {c[1]}개''\\) for c in counts]\")",
+      "Bash(.venvScriptspython.exe -c \"from app.database import SessionLocal; from app.models.disease import Disease; from app.models.disease_symptom import DiseaseSymptom; db = SessionLocal\\(\\); result = db.query\\(Disease.id, Disease.name\\).filter\\(Disease.name.in_\\([''삼차신경통'', ''협심증'']\\)\\).all\\(\\); print\\(''질병 ID:''\\); [print\\(f''{r[0]}: {r[1]}''\\) for r in result]; print\\(''\\\\n증상 수:''\\); counts = db.query\\(DiseaseSymptom.disease_id, db.func.count\\(DiseaseSymptom.symptom_id\\)\\).filter\\(DiseaseSymptom.disease_id.in_\\([r[0] for r in result]\\)\\).group_by\\(DiseaseSymptom.disease_id\\).all\\(\\); [print\\(f''질병 {c[0]}: {c[1]}개''\\) for c in counts]\")",
+      "Bash(cmd /c:*)",
+      "Bash(sqlite3:*)",
+      "Bash(python3:*)",
+      "Bash(/c/Users/student/AppData/Local/Microsoft/WindowsApps/python seed_data_extended.py)"
     ]
   }
 }
